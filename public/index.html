@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DevOps Todo App</title>
+  <style>
+    body { font-family: sans-serif; margin: 2rem; }
+    input { padding: 0.5rem; font-size: 1rem; }
+    button { padding: 0.5rem 1rem; }
+    li { margin: 0.5rem 0; }
+    .done { text-decoration: line-through; color: gray; }
+  </style>
+</head>
+<body>
+  <h1>My Todos</h1>
+  <input type="text" id="todoInput" placeholder="Add a todo..." />
+  <button onclick="addTodo()">Add</button>
+  <ul id="todoList"></ul>
+
+  <script>
+    const api = '/api/todos';
+    async function loadTodos() {
+      const res = await fetch(api);
+      const todos = await res.json();
+      const list = document.getElementById('todoList');
+      list.innerHTML = '';
+      todos.forEach(t => {
+        const li = document.createElement('li');
+        li.innerHTML = `${t.text} <button onclick="deleteTodo(${t.id})">Delete</button>`;
+        if (t.done) li.classList.add('done');
+        list.appendChild(li);
+      });
+    }
+
+    async function addTodo() {
+      const input = document.getElementById('todoInput');
+      await fetch(api, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ text: input.value }) });
+      input.value = '';
+      loadTodos();
+    }
+
+    async function deleteTodo(id) {
+      await fetch(`${api}/${id}`, { method: 'DELETE' });
+      loadTodos();
+    }
+
+    loadTodos();
+  </script>
+</body>
+</html>
