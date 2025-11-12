@@ -22,3 +22,26 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw?
+
+# Terraform
+.terraform/
+.terraform.lock.hcl
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+
+# Local overrides
+*.tfvars
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Crash logs
+crash.log
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo

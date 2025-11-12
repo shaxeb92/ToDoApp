@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: todo
-        image: shaxeb/devops-todo-app:latest
+        image: 116981786901.dkr.ecr.us-east-1.amazonaws.com/devops-todo-app:latest
         ports:
         - containerPort: 3000
 ---
