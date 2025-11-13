@@ -119,8 +119,6 @@ resource "aws_eks_cluster" "devops_eks" {
   depends_on = [aws_iam_role_policy_attachment.eks_cluster]
 }
 
-# Optional: Remove the old data source since we're not using default subnets
-# (You can delete the `data "aws_subnets" "default"` block)
 
 # ====== ADD THIS: EKS MANAGED NODE GROUP ======
 resource "aws_eks_node_group" "main" {
