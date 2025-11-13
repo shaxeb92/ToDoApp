@@ -13,6 +13,11 @@ jobs:
         uses: sonarsource/sonarqube-scan-action@master
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN1 }}
+          SONAR_HOST_URL: https://sonarcloud.io
+        with:
+          args: >
+            -Dsonar.projectKey=shaxeb92_ToDoApp
+            -Dsonar.organization=shaxeb92
 
   build-deploy:
     needs: security-scan
