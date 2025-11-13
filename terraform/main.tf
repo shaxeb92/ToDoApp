@@ -82,8 +82,6 @@ resource "aws_iam_role_policy_attachment" "eks_nodes" {
   role       = aws_iam_role.eks_nodes.name
 }
 
-# Create a new VPC (assuming this is already defined as aws_vpc.todo_vpc)
-# ...
 
 # 1. Create at least 2 subnets in different AZs
 resource "aws_subnet" "eks_subnet" {
