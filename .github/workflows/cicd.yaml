@@ -18,6 +18,7 @@ jobs:
           args: >
             -Dsonar.projectKey=shaxeb92_ToDoApp
             -Dsonar.organization=shaxeb92
+            -Dsonar.host.url=https://sonarcloud.io
 
   build-deploy:
     needs: security-scan
