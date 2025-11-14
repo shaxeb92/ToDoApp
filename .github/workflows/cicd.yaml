@@ -2,7 +2,7 @@ name: CI/CD Pipeline (AWS)
 
 #on:
 #  push:
-#    branches: [ main ]
+#    branches: [ branch1 ]
 on: workflow_dispatch
 
 jobs:
