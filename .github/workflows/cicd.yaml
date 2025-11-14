@@ -59,6 +59,10 @@ jobs:
       - name: Update kubeconfig
         run: aws eks update-kubeconfig --name devops-eks --region us-east-1
 
+      # Debug: Who am I?
+      - name: Check AWS Identity
+        run: aws sts get-caller-identity
+
       # Deploy
       - name: Deploy to EKS
         run: |
